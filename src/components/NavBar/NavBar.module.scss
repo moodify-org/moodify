@@ -1,0 +1,29 @@
+.NavBar {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.NavBar h1 {
+    padding-left: 50px;
+}
+
+.NavBar h2 {
+    padding: 20px;
+}
+
+.NavBar h1,
+.NavBar h2 {
+    color: white;
+}
+
+.NavBar a {
+    text-decoration: none;
+}
+
+.navOptions {
+    display: flex;
+    padding-right: 50px;
+}
