@@ -1,5 +1,6 @@
 .HomePage {
     display: flex;
+    flex-direction: column;
 }
 
 .homeHeader {
@@ -20,4 +21,26 @@
 .homeHeader h1 {
     color: white;
     text-align: center;
+    font-size: 80px;
+    font-weight: 600;
+}
+
+.homeText {
+    color: white;
+    text-align: center;
+    background-color: black;
+    padding: 7vh;
+}
+
+.homeMoods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.homeMoods div {
+    flex: 0 1 auto;
+    color: white;
+    margin: 5vh;
+    padding: 20vh;
+    background-color: black;
 }

@@ -1,3 +1,4 @@
+
 import styles from "./HomePage.module.scss"
 
 export default function HomePage () {
@@ -5,6 +6,15 @@ export default function HomePage () {
         <div className={styles.HomePage}>
             <div className={styles.homeHeader}>
                 <h1>WHAT'S YOUR MOOD?</h1>
+            </div>
+            <div className={styles.homeText}><h1>Select the playlist you want to feel!</h1></div>
+            <div className={styles.homeMoods}>
+                <div>Mood 1</div>
+                <div>Mood 1</div>
+                <div>Mood 1</div>
+                <div>Mood 1</div>
+                <div>Mood 1</div>
+                <div>Mood 1</div>
             </div>
         </div>
     )
