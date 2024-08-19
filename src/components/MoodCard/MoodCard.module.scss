@@ -1,6 +1,6 @@
 .item {
-    width: 15vh;
-    height: 15vh;
+    width: 30vh;
+    height: 30vh;
     background-color: blue;
     transition: background-color 0.3s ease;
     color: white;
@@ -9,7 +9,7 @@
     justify-content: center;
     flex: 0 1 auto;
     color: white;
-    margin: 5vh;
+    margin: 4vh 2vh;
     padding: 10vh;
     background-color: black;
   }

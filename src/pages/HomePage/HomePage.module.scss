@@ -35,12 +35,5 @@
 .homeMoods {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-}
-.homeMoods div {
-    flex: 0 1 auto;
-    color: white;
-    margin: 5vh;
-    padding: 20vh;
-    background-color: black;
+    justify-content: space-evenly;
 }

@@ -1,9 +1,8 @@
-import { useState } from "react"
-import styles from "./MoodCard.module.scss"
-import MoodPage from "../../pages/MoodPage/MoodPage";
+import { useState } from "react";
+import styles from "./MoodCard.module.scss";
 import { Link } from 'react-router-dom';
 
-export default function MoodCard() {
+export default function MoodCard({ details, id }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -15,15 +14,14 @@ export default function MoodCard() {
   };
 
   return (
-    <Link to="/MoodPage" element={<MoodPage />}>
+    <Link to={`/${id}`}>
       <div
         className={`${styles.item} ${isHovered ? styles.hovered : ""}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {isHovered ? "Hello!" : "Hover over me"}
+        {isHovered ? details.description : details.title}
       </div>
     </Link>
-
-  )
+  );
 }
