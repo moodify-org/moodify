@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer'
 
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import AboutPage from './pages/About/AboutPage'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/:moodId" element={<MoodPage />} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
         </div>
 
