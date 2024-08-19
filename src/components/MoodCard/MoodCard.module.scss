@@ -1,1 +1,19 @@
-
+.item {
+    width: 15vh;
+    height: 15vh;
+    background-color: blue;
+    transition: background-color 0.3s ease;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 auto;
+    color: white;
+    margin: 5vh;
+    padding: 10vh;
+    background-color: black;
+  }
+  
+  .hovered {
+    background-color: green;
+  }
