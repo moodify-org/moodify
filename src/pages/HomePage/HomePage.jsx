@@ -1,8 +1,19 @@
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 import MoodCard from "../../components/MoodCard/MoodCard"
 import styles from "./HomePage.module.scss"
 
 export default function HomePage () {
+    const [moodList, setMoodList] = useState()
+
+    useEffect(() => {
+      axios
+        .get("https://json-moodify.adaptable.app/playlists")
+        .then(({data}) => setMoodList(data))
+        .catch(e => console.log(e))
+    }, [])
+  
     return (
         <div className={styles.HomePage}>
             <div className={styles.homeHeader}>
