@@ -1,17 +1,14 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+
+import { useNavigate } from 'react-router-dom';
 import MoodCard from "../../components/MoodCard/MoodCard";
 import styles from "./HomePage.module.scss";
 
-export default function HomePage() {
-  const [moodList, setMoodList] = useState(null);
+export default function HomePage({ moodList }) {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get("https://json-moodify.adaptable.app/playlists")
-      .then(({ data }) => setMoodList(data))
-      .catch(e => console.log(e));
-  }, []);
+  const handleMoodClick = (mood) => {
+    navigate(`/${mood.id}`, { state: { details: mood } });
+  };
 
   return (
     <div className={styles.HomePage}>
@@ -23,7 +20,11 @@ export default function HomePage() {
       </div>
       <div className={styles.homeMoods}>
         {moodList && moodList.map((mood) => (
-          <div className={styles.homeMood} key={mood.id}>
+          <div
+            className={styles.homeMood}
+            key={mood.id}
+            onClick={() => handleMoodClick(mood)}
+          >
             <MoodCard details={mood} id={mood.id} />
           </div>
         ))}
