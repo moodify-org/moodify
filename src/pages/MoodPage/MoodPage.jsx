@@ -87,14 +87,17 @@ export default function MoodPage({ moodList, token }) {
             {recommendations.length > 0 ? (
               <ul>
                 {recommendations.map(track => (
-                  <li key={track.id}>
-                    {track.name} by {track.artists.map(artist => artist.name).join(', ')}
-                    <div>
-                      <audio controls src={track.preview_url}>
-                        Your browser does not support the audio element.
-                      </audio>
+                  <li key={track.id} className={styles.trackItem}>
+                  <div className={styles.audioPlayerContainer}>
+                    <div className={styles.trackInfo}>
+                      <span className={styles.trackTitle}>{track.name}</span>
+                      <span className={styles.trackArtists}>
+                        {track.artists.map(artist => artist.name).join(', ')}
+                      </span>
                     </div>
-                  </li>
+                    <audio controls className={styles.audioPlayer} src={track.preview_url}></audio>
+                  </div>
+                </li>
                 ))}
               </ul>
             ) : (
