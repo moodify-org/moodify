@@ -4,11 +4,13 @@
   width: 100%;
   background-color: black;
   flex-direction: row;
+
 }
 
 .main {
   display: flex;
   flex-grow: 1;
+  flex-direction: column;
 }
 
 .header {
@@ -23,4 +25,8 @@
 
 h1 {
   text-align: center;
+}
+
+ul {
+  color: white;
 }
