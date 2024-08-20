@@ -28,7 +28,7 @@ export default function HomePage({ playlistList }) {
         <h1>Select the playlist you want to feel!</h1>
       </div>
       <div className={styles.homeMoods}>
-        {playlistList && playlistList.map((mood, index) => (
+        {playlistList && playlistList.slice(0, 6).map((mood, index) => (  
           <div
             className={styles.homeMood}
             key={mood.id}
@@ -37,7 +37,7 @@ export default function HomePage({ playlistList }) {
             <MoodCard
               details={mood}
               id={mood.id}
-              gradient={gradients[index % gradients.length]} // Assign a gradient based on index
+              gradient={gradients[index % gradients.length]} 
             />
           </div>
         ))}
