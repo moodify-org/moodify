@@ -11,10 +11,10 @@
   padding: 10vh;
   border-radius: 10px;
   text-align: center;
-  background-size: cover; /* Ensure the gradient covers the entire card */
+  background-size: cover;
   background-position: center;
 }
 
 .hovered {
-  filter: brightness(0.9); // Lighten the gradient on hover
+  filter: brightness(0.9);
 }

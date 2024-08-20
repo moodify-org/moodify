@@ -14,12 +14,12 @@ export default function MoodCard({ details, id, gradient }) {
   };
 
   return (
-    <Link to={`/${id}`}>
+    <Link to={`/${id}`} style={{ textDecoration: 'none' }}>
       <div
         className={`${styles.item} ${isHovered ? styles.hovered : ""}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        style={{ backgroundImage: gradient }} // Apply the gradient background
+        style={{ backgroundImage: gradient }}
       >
         {isHovered ? details.description : details.title}
       </div>
