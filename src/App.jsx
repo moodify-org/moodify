@@ -50,6 +50,9 @@ function App() {
     getSpotifyToken();
   }, []);
 
+
+  
+
   return (
     <>
       <div className="App">
