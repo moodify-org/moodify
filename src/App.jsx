@@ -1,17 +1,17 @@
 import NavBar from './components/NavBar/NavBar'
 import HomePage from './pages/HomePage/HomePage'
 import MoodPage from './pages/MoodPage/MoodPage'
+import AddPlaylistPage from './pages/AddPlaylist/AddPlaylistPage'
+import AboutPage from './pages/About/AboutPage'
 import Footer from './components/Footer/Footer'
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import AboutPage from './pages/About/AboutPage'
-import AddPlaylistPage from './pages/AddPlaylist/AddPlaylistPage'
 
 function App() {
-  const [moodList, setMoodList] = useState(null);
+  const [playlistList, setPlaylistList] = useState(null);
   const [spotifyToken, setSpotifyToken] = useState(null);
 
   const clientId = '2bd460b04c6f4b8db226b69cf8ab0b96'; 
@@ -20,7 +20,7 @@ function App() {
   const getPlaylists = () => {
     axios
       .get("https://json-moodify.adaptable.app/playlists")
-      .then(({ data }) => setMoodList(data))
+      .then(({ data }) => setPlaylistList(data))
       .catch(e => console.log(e));
   }
 
@@ -50,8 +50,10 @@ function App() {
     getSpotifyToken();
   }, []);
 
-
-  
+  const createPlaylist = playlistDetails => {
+    const newPlaylist = {...playlistDetails, id: Math.max(...playlistList.map(playlist => playlist.id)) + 1,} 
+    setPlaylistList([...playlistList, newPlaylist])
+  }
 
   return (
     <>
@@ -60,10 +62,10 @@ function App() {
 
         <div className="Routes">
           <Routes>
-            <Route path="/" element={<HomePage moodList={moodList} />} />
-            <Route path="/:moodId" element={<MoodPage moodList={moodList} token={spotifyToken}/>} />
+            <Route path="/" element={<HomePage playlistList={playlistList} />} />
+            <Route path="/:moodId" element={<MoodPage playlistList={playlistList} token={spotifyToken}/>} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/create" element ={<AddPlaylistPage/>} />
+            <Route path="/create" element ={<AddPlaylistPage callbackToCreate={createPlaylist}/>} />
           </Routes>
         </div>
 

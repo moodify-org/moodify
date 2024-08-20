@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import MoodCard from "../../components/MoodCard/MoodCard";
 import styles from "./HomePage.module.scss";
 
-export default function HomePage({ moodList }) {
+export default function HomePage({ playlistList }) {
   const navigate = useNavigate();
 
   const handleMoodClick = (mood) => {
@@ -19,7 +19,7 @@ export default function HomePage({ moodList }) {
         <h1>Select the playlist you want to feel!</h1>
       </div>
       <div className={styles.homeMoods}>
-        {moodList && moodList.map((mood) => (
+        {playlistList && playlistList.map((mood) => (
           <div
             className={styles.homeMood}
             key={mood.id}

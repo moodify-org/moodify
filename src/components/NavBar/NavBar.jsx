@@ -14,7 +14,7 @@ export default function NavBar() {
         <div className={styles.NavBar}>
             <div><Link to="/"><h1>Moodify</h1></Link></div>
             <div className={styles.navOptions}>
-                <Link to="*"><h2>Create Playlist</h2></Link>
+                <Link to="/create"><h2>Create Playlist</h2></Link>
                 <button onClick={handleRandomClick}><h2>Random</h2></button>
                 <Link to="/about"><h2>About</h2></Link>
             </div>
