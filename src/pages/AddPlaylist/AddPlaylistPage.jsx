@@ -10,7 +10,9 @@ export default function AddPlaylistPage ({callbackToCreate}) {
 
         const songDetails = {
           title: title,
-          description: description
+          description: description,
+          genre: [],
+          songs: []
         }
 
         callbackToCreate(songDetails);
@@ -36,7 +38,7 @@ export default function AddPlaylistPage ({callbackToCreate}) {
                 />
             </label>
             <label>
-                Year:
+                Description:
                 <input 
                 type="text" 
                 name="description" 

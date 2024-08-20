@@ -4,7 +4,7 @@ import styles from "./MoodPage.module.scss";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function MoodPage({ moodList, token }) {
+export default function MoodPage({ playlistList, token }) {
   const { moodId } = useParams();
   const navigate = useNavigate();
   const [moodDetails, setMoodDetails] = useState(null);
@@ -12,15 +12,15 @@ export default function MoodPage({ moodList, token }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (moodList) {
-      const mood = moodList.find((m) => m.id === parseInt(moodId));
+    if (playlistList) {
+      const mood = playlistList.find((m) => m.id === parseInt(moodId));
       if (mood) {
         setMoodDetails(mood);
       } else {
         navigate('/');
       }
     }
-  }, [moodId, moodList, navigate]);
+  }, [moodId, playlistList, navigate]);
 
   useEffect(() => {
     const fetchRecommendations = async () => {
