@@ -8,6 +8,7 @@ import axios from 'axios';
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import AboutPage from './pages/About/AboutPage'
+import AddPlaylistPage from './pages/AddPlaylist/AddPlaylistPage'
 
 function App() {
   const [moodList, setMoodList] = useState(null);
@@ -59,6 +60,7 @@ function App() {
             <Route path="/" element={<HomePage moodList={moodList} />} />
             <Route path="/:moodId" element={<MoodPage moodList={moodList} token={spotifyToken}/>} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/create" element ={<AddPlaylistPage callbackToCreate={createPlaylist}/>} />
           </Routes>
         </div>
 
