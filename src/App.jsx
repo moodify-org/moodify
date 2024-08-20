@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import AboutPage from './pages/About/AboutPage'
 
 function App() {
   const [moodList, setMoodList] = useState(null);
@@ -27,6 +28,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage moodList={moodList} />} />
             <Route path="/:moodId" element={<MoodPage  moodList={moodList}/>} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
         </div>
 

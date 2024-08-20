@@ -8,7 +8,7 @@ export default function NavBar () {
             <div className={styles.navOptions}>
                 <Link to="*"><h2>Playlist</h2></Link>
                 <Link to="*"><h2>Random</h2></Link>
-                <Link to="*"><h2>About</h2></Link>
+                <Link to="/about"><h2>About</h2></Link>
             </div>
         </div>
     )
