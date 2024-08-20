@@ -78,7 +78,7 @@ li {
 
 .audioPlayer {
   flex-shrink: 0;
-  width: 200px;
+  width: 300px;
   appearance: none;
 
   &::-webkit-media-controls-panel {
@@ -99,7 +99,7 @@ li {
   }
 
   &::-webkit-media-controls-volume-slider {
-    width: 80px;
+    width: 50px;
     color: black;
   }
 
