@@ -63,7 +63,7 @@ function App() {
             <Route path="/" element={<HomePage moodList={moodList} />} />
             <Route path="/:moodId" element={<MoodPage moodList={moodList} token={spotifyToken}/>} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/create" element ={<AddPlaylistPage callbackToCreate={createPlaylist}/>} />
+            <Route path="/create" element ={<AddPlaylistPage/>} />
           </Routes>
         </div>
 

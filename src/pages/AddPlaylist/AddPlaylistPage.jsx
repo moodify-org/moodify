@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function AddMovie ({callbackToCreate}) {
+export default function AddPlaylistPage ({callbackToCreate}) {
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
