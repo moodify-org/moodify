@@ -11,11 +11,12 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 
 function App() {
+
   const [playlistList, setPlaylistList] = useState(null);
   const [spotifyToken, setSpotifyToken] = useState(null);
 
-  const clientId = '2bd460b04c6f4b8db226b69cf8ab0b96'; 
-  const clientSecret = '85d7b542e98a4533ab1fac32b7c1d91d'; 
+  const clientId = 'dfdce7edcb2644cd985ecca96b5252e5';
+  const clientSecret = '5c7cdba168b24c198ab03779eb8e0f55';
 
   const getPlaylists = () => {
     axios
@@ -25,6 +26,8 @@ function App() {
   }
 
   const getSpotifyToken = () => {
+
+
     axios.post('https://accounts.spotify.com/api/token',
       new URLSearchParams({
         grant_type: 'client_credentials',
@@ -51,7 +54,7 @@ function App() {
   }, []);
 
   const createPlaylist = playlistDetails => {
-    const newPlaylist = {...playlistDetails, id: Math.max(...playlistList.map(playlist => playlist.id)) + 1,} 
+    const newPlaylist = { ...playlistDetails, id: Math.max(...playlistList.map(playlist => playlist.id)) + 1, }
     setPlaylistList([...playlistList, newPlaylist])
   }
 
@@ -63,9 +66,9 @@ function App() {
         <div className="Routes">
           <Routes>
             <Route path="/" element={<HomePage playlistList={playlistList} />} />
-            <Route path="/:moodId" element={<MoodPage playlistList={playlistList} token={spotifyToken}/>} />
+            <Route path="/:moodId" element={<MoodPage playlistList={playlistList} token={spotifyToken} />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/create" element ={<AddPlaylistPage callbackToCreate={createPlaylist}/>} />
+            <Route path="/create" element={<AddPlaylistPage callbackToCreate={createPlaylist} />} />
           </Routes>
         </div>
 

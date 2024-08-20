@@ -4,14 +4,13 @@
   width: 100%;
   background-color: black;
   flex-direction: row;
+
 }
 
 .main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center;
 }
 
 .header {
@@ -32,50 +31,47 @@ ul {
   color: white;
   text-decoration: none;
   list-style-type: none;
-  padding: 0;
-  margin: 0;
 }
 
 li {
   text-decoration: none;
-  width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .trackItem {
   padding: 10px 0;
-  width: 50%;
   align-items: center;
   justify-content: center;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .audioPlayerContainer {
   display: flex;
   align-items: center;
-  background-color: #f8f8f8;
+  background-color: back;
+  border: 1px solid white;
   padding: 10px;
   border-radius: 50px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
 }
 
 .trackInfo {
   flex-grow: 1;
   margin-right: 20px;
-  text-align: center;
-}
 
-.trackTitle {
-  font-weight: 700;
-  font-size: 16px;
-  color: #1db954;
-  display: block;
-}
+  .trackTitle {
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    display: block;
+  }
 
-.trackArtists {
-  font-size: 14px;
-  color: #666;
+  .trackArtists {
+    font-size: 17px;
+    color: #666;
+  }
 }
 
 .audioPlayer {
@@ -84,12 +80,12 @@ li {
   appearance: none;
 
   &::-webkit-media-controls-panel {
-    background-color: transparent;
+    background-color: green;
     border-radius: 8px;
   }
 
   &::-webkit-media-controls-play-button {
-    background-color: #1db954;
+    background-color: #FFC0CB;
     border-radius: 50%;
     box-shadow: none;
   }
@@ -97,14 +93,24 @@ li {
   &::-webkit-media-controls-current-time-display,
   &::-webkit-media-controls-time-remaining-display {
     font-size: 12px;
-    color: #000;
+    color: white;
   }
 
   &::-webkit-media-controls-volume-slider {
     width: 80px;
+    color: white;
+  }
+
+  &::-webkit-media-controls-volume-slider-container {
+    color: #FFFFFF;
+  }
+
+  &::-webkit-media-controls-mute-button {
+    background-color: white;
+    /* Rendre l'icône muette blanche */
   }
 
   &::-webkit-media-controls-play-button:hover {
-    background-color: #1ed760;
+    background-color: #faadba; // Couleur légèrement plus claire au survol
   }
 }

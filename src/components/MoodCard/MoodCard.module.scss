@@ -1,19 +1,20 @@
 .item {
-    width: 30vh;
-    height: 30vh;
-    transition: background-color 0.3s ease;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 1 auto;
-    color: white;
-    margin: 4vh 2vh;
-    padding: 10vh;
-    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-    border-radius: 10px;
-  }
+  width: 30vh;
+  height: 30vh;
+  transition: background-image 0.3s ease;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  margin: 4vh 2vh;
+  padding: 10vh;
+  border-radius: 10px;
+  text-align: center;
+  background-size: cover; /* Ensure the gradient covers the entire card */
+  background-position: center;
+}
 
-  .hovered {
-    background-color: #FFC0CB;
-  }
+.hovered {
+  filter: brightness(0.9); // Lighten the gradient on hover
+}

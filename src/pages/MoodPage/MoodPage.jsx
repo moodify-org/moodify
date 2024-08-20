@@ -31,6 +31,7 @@ export default function MoodPage({ playlistList, token }) {
           const maxAttempts = 5;
 
           while (tracksWithPreview.length < 10 && attempts < maxAttempts) {
+
             const response = await axios.get('https://api.spotify.com/v1/recommendations', {
               params: {
                 limit: 20,
@@ -88,16 +89,16 @@ export default function MoodPage({ playlistList, token }) {
               <ul>
                 {recommendations.map(track => (
                   <li key={track.id} className={styles.trackItem}>
-                  <div className={styles.audioPlayerContainer}>
-                    <div className={styles.trackInfo}>
-                      <span className={styles.trackTitle}>{track.name}</span>
-                      <span className={styles.trackArtists}>
-                        {track.artists.map(artist => artist.name).join(', ')}
-                      </span>
+                    <div className={styles.audioPlayerContainer}>
+                      <div className={styles.trackInfo}>
+                        <span className={styles.trackTitle}>{track.name}</span>
+                        <span className={styles.trackArtists}>
+                          {track.artists.map(artist => artist.name).join(', ')}
+                        </span>
+                      </div>
+                      <audio controls className={styles.audioPlayer} src={track.preview_url}></audio>
                     </div>
-                    <audio controls className={styles.audioPlayer} src={track.preview_url}></audio>
-                  </div>
-                </li>
+                  </li>
                 ))}
               </ul>
             ) : (
