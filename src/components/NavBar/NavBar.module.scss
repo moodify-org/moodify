@@ -8,15 +8,20 @@
 
 .NavBar h1 {
     padding-left: 50px;
+    color: #FFC0CB;
 }
 
 .NavBar h2 {
     padding: 20px;
 }
 
-.NavBar h1,
+
 .NavBar h2 {
     color: white;
+}
+
+.NavBar h2:hover {
+  color: #FFC0CB;
 }
 
 .NavBar a {
