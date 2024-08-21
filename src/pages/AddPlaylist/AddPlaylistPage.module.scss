@@ -1,0 +1,45 @@
+.AddPlaylistPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 78vh;
+    color: white;
+    background-color: black;
+}
+
+.div {
+    background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+    border-radius: 20px;
+    padding: 10vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 10vh 0 10vh;
+    align-items: center;
+}
+
+.form button {
+    padding: 2vh;
+    margin-top: 5vh;
+    border: none;
+    border-radius: 10px;
+}
+
+.form input {
+    margin-top: 1vh;
+    padding: 1vh;
+    border-radius: 10px;
+    border: none;
+}
+
+.AddPlaylistPage h2 {
+    padding: 5vh;
+}
+
+.AddPlaylistPage label{
+    padding: 3vh;
+}
