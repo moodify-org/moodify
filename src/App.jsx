@@ -16,8 +16,8 @@ function App() {
   const [playlistList, setPlaylistList] = useState(null);
   const [spotifyToken, setSpotifyToken] = useState(null);
 
-  const clientId = '2bd460b04c6f4b8db226b69cf8ab0b96';
-  const clientSecret = '85d7b542e98a4533ab1fac32b7c1d91d';
+  const clientId = 'dfdce7edcb2644cd985ecca96b5252e5';
+  const clientSecret = '5c7cdba168b24c198ab03779eb8e0f55';
 
   const getPlaylists = () => {
     axios
