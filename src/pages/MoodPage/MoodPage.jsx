@@ -4,7 +4,7 @@ import styles from "./MoodPage.module.scss";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function MoodPage({ playlistList, token }) {
+export default function MoodPage({ playlistList, token, gradients }) {
   const { moodId } = useParams();
   const navigate = useNavigate();
   const [moodDetails, setMoodDetails] = useState(null);
@@ -78,7 +78,7 @@ export default function MoodPage({ playlistList, token }) {
     <div className={styles.MoodPage}>
       <Sidebar />
       <div className={styles.main}>
-        <div className={styles.header}>
+        <div className={styles.header} style={{ backgroundImage: gradients ? gradients[moodId - 1] : 'none' }}>
           <h1>{moodDetails.title}</h1>
         </div>
         <div>
@@ -99,7 +99,11 @@ export default function MoodPage({ playlistList, token }) {
                           {track.artists.map(artist => artist.name).join(', ')}
                         </span>
                       </div>
-                      <audio controls className={styles.audioPlayer} src={track.preview_url}></audio>
+                      <audio
+                        controls
+                        className={`${styles.audioPlayer} ${styles[`gradient-${moodId}`]}`}
+                        src={track.preview_url}
+                      ></audio>
                     </div>
                   </li>
                 ))}

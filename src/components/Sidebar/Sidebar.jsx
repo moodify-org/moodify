@@ -1,52 +1,53 @@
 import styles from "./Sidebar.module.scss"
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({ gradients, playlistList }) {
+  const { moodId } = useParams();
   return (
-    <div className={styles.sidebar}>
+    <div className={styles.sidebar} style={{ backgroundImage: gradients ? gradients[moodId - 1] : 'none' }}>
       <nav>
         <ul className={styles.menu}>
           <li>
-            <NavLink  style={({ isActive}) => {
+            <NavLink style={({ isActive }) => {
               return {
                 color: isActive ? "#00bfff" : "",
               };
-            }} className={styles.active} to="/Mood1">Mood 1</NavLink>
+            }} className={styles.active} to="/Mood1">Sad</NavLink>
           </li>
           <li>
-            <NavLink style={({ isActive}) => {
+            <NavLink style={({ isActive }) => {
               return {
                 color: isActive ? "#00bfff" : "",
               };
-            }} to="/Mood2">Mood 2</NavLink>
+            }} to="/Mood2">Chill</NavLink>
           </li>
           <li>
-            <NavLink style={({ isActive}) => {
+            <NavLink style={({ isActive }) => {
               return {
                 color: isActive ? "#00bfff" : "",
               };
-            }} to="/Mood3">Mood 3</NavLink>
+            }} to="/Mood3">Angry</NavLink>
           </li>
           <li>
-            <NavLink style={({ isActive}) => {
+            <NavLink style={({ isActive }) => {
               return {
                 color: isActive ? "#00bfff" : "",
               };
-            }} to="/Mood4">Mood 4</NavLink>
+            }} to="/Mood4">Happy</NavLink>
           </li>
           <li>
-            <NavLink style={({ isActive}) => {
+            <NavLink style={({ isActive }) => {
               return {
                 color: isActive ? "#00bfff" : "",
               };
-            }} to="/Mood5">Mood 5</NavLink>
+            }} to="/Mood5">Empowered</NavLink>
           </li>
           <li>
-            <NavLink style={({ isActive}) => {
+            <NavLink style={({ isActive }) => {
               return {
                 color: isActive ? "#00bfff" : "",
               };
-            }} to="/Mood6">Mood 6</NavLink>
+            }} to="/Mood6">Nature</NavLink>
           </li>
         </ul>
       </nav>

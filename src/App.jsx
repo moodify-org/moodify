@@ -15,8 +15,8 @@ function App() {
   const [playlistList, setPlaylistList] = useState(null);
   const [spotifyToken, setSpotifyToken] = useState(null);
 
-  const clientId = 'dfdce7edcb2644cd985ecca96b5252e5';
-  const clientSecret = '5c7cdba168b24c198ab03779eb8e0f55';
+  const clientId = '3d7a80687e3b434681290c6e8ab96955';
+  const clientSecret = '414bad401d50421283561ca282fef6e9';
 
   const getPlaylists = () => {
     axios
@@ -58,6 +58,15 @@ function App() {
     setPlaylistList([...playlistList, newPlaylist])
   }
 
+  const gradients = [
+    "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
+    "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)",
+    "linear-gradient(to top, #ff0844 0%, #ffb199 100%)",
+    "linear-gradient(120deg, #f6d365 0%, #fda085 100%)",
+    "linear-gradient(120deg, #f093fb 0%, #f5576c 100%)",
+    "linear-gradient(to right, #43e97b 0%, #38f9d7 100%)"
+  ];
+
   return (
     <>
       <div className="App">
@@ -65,8 +74,8 @@ function App() {
 
         <div className="Routes">
           <Routes>
-            <Route path="/" element={<HomePage playlistList={playlistList} />} />
-            <Route path="/:moodId" element={<MoodPage playlistList={playlistList} token={spotifyToken} />} />
+            <Route path="/" element={<HomePage playlistList={playlistList} gradients={gradients} />} />
+            <Route path="/:moodId" element={<MoodPage playlistList={playlistList} gradients={gradients} token={spotifyToken} />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/create" element={<AddPlaylistPage callbackToCreate={createPlaylist} />} />
           </Routes>
