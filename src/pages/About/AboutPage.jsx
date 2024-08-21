@@ -20,7 +20,7 @@ export default function AboutPage() {
               <img src="jose.JPG" alt="Jose" />
             </div>
             <div className={styles.cardContent}>
-              <h3>Jose</h3>
+              <h3>Jose Luis Neira</h3>
               <p>Developer and designer of Moodify.</p>
             </div>
           </a>
@@ -34,7 +34,7 @@ export default function AboutPage() {
               <img src="mael.jpg" alt="Mael" />
             </div>
             <div className={styles.cardContentMael}>
-              <h3>Mael</h3>
+              <h3>Mael Micout</h3>
               <p>Developer and designer of Moodify.</p>
             </div>
           </a>
