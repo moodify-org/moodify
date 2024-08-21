@@ -3,7 +3,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import styles from "../MoodPage/MoodPage.module.scss";
 import { useEffect, useState } from 'react';
 
-export default function PlaylistPage({ playlistList, gradients }) {
+export default function PlaylistPage({ playlistList, gradients, deletePlaylist }) {
   const { playlistId } = useParams();
   const navigate = useNavigate();
   const [playlistDetails, setPlaylistDetails] = useState(null);
@@ -14,7 +14,7 @@ export default function PlaylistPage({ playlistList, gradients }) {
       const playlist = playlistList.find((m) => m.id === parseInt(playlistId) + 6);
       if (playlist) {
         setPlaylistDetails(playlist);
-        setRandomColorNum(Math.floor(((Math.random() * 5) + 1)))
+        setRandomColorNum(Math.floor(Math.random() * gradients.length));
       } else {
         navigate('/');
       }
@@ -32,11 +32,12 @@ export default function PlaylistPage({ playlistList, gradients }) {
       <div className={styles.main}>
         <div className={styles.header} style={{ backgroundImage: gradients ? gradients[randomColorNum] : 'none' }}>
           <h1>{playlistDetails.title}</h1>
+          <button onClick={() => deletePlaylist(playlistDetails.id)}>Delete</button>
         </div>
         <div>
           <div>
             <ul>
-              {playlistList[playlistId + 5].songs.map(track => (
+              {playlistDetails.songs.map(track => (
                 <li key={track.id} className={styles.trackItem}>
                   <div className={styles.audioPlayerContainer}>
                     <img
@@ -52,7 +53,7 @@ export default function PlaylistPage({ playlistList, gradients }) {
                     </div>
                     <audio
                       controls
-                      className={`${styles.audioPlayer} ${styles[`gradient-${moodId}`]}`}
+                      className={`${styles.audioPlayer} ${styles[`gradient-${randomColorNum + 1}`]}`}
                       src={track.preview_url}
                     ></audio>
                   </div>

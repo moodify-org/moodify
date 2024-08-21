@@ -68,7 +68,10 @@ export default function MoodPage({ playlistList, token, gradients, addTrackToPla
   }, [moodDetails, token]);
 
   const handleAddTrack = (playlistId, track) => {
-    addTrackToPlaylist(playlistId, track);
+    if (playlistId && track) {
+      addTrackToPlaylist(parseInt(playlistId), track);
+      setSelectedPlaylistId('');  
+    }
   };
 
   if (error) {

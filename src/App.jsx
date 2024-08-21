@@ -2,6 +2,7 @@ import NavBar from './components/NavBar/NavBar'
 import HomePage from './pages/HomePage/HomePage'
 import MoodPage from './pages/MoodPage/MoodPage'
 import AddPlaylistPage from './pages/AddPlaylist/AddPlaylistPage'
+import PlaylistPage from './pages/PlaylistPage/PlaylistPage'
 import AboutPage from './pages/About/AboutPage'
 import Footer from './components/Footer/Footer'
 
@@ -9,15 +10,14 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import PlaylistPage from './pages/PlaylistPage/PlaylistPage'
 
 function App() {
 
   const [playlistList, setPlaylistList] = useState(null);
   const [spotifyToken, setSpotifyToken] = useState(null);
 
-  const clientId = '3d7a80687e3b434681290c6e8ab96955';
-  const clientSecret = '414bad401d50421283561ca282fef6e9';
+  const clientId = '2bd460b04c6f4b8db226b69cf8ab0b96';
+  const clientSecret = '85d7b542e98a4533ab1fac32b7c1d91d';
 
   const getPlaylists = () => {
     axios
@@ -54,18 +54,19 @@ function App() {
     getSpotifyToken();
   }, []);
 
-  const createPlaylist = playlistDetails => {
-    const newPlaylist = { ...playlistDetails, id: Math.max(...playlistList.map(playlist => playlist.id)) + 1, }
-    setPlaylistList([...playlistList, newPlaylist])
-  }
-
   const addTrackToPlaylist = (playlistId, track) => {
     setPlaylistList(prevPlaylists =>
       prevPlaylists.map(playlist =>
         playlist.id === playlistId
-          ? { ...playlist, songs: [...(playlist.songs || []), track] }
+          ? { ...playlist, songs: [...playlist.songs, track] }
           : playlist
       )
+    );
+  };
+
+  const deletePlaylist = (playlistId) => {
+    setPlaylistList(
+      playlistList.filter(playlist => playlist.id !== playlistId)
     );
   };
 
@@ -87,9 +88,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage playlistList={playlistList} gradients={gradients} />} />
             <Route path="/:moodId" element={<MoodPage playlistList={playlistList} gradients={gradients} token={spotifyToken} addTrackToPlaylist={addTrackToPlaylist} />} />
-            <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} />} />
+            <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} deletePlaylist={deletePlaylist}/>} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/create" element={<AddPlaylistPage playlistList={playlistList} callbackToCreate={createPlaylist} />} />
+            <Route path="/create" element={<AddPlaylistPage playlistList={playlistList} />} />
           </Routes>
         </div>
 
