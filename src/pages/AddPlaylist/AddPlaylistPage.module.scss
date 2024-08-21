@@ -1,45 +1,64 @@
 .AddPlaylistPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 78vh;
-    color: white;
-    background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: rgb(32, 32, 32);
+  background-color: black;
 }
 
 .div {
-    background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
-    border-radius: 20px;
-    padding: 10vh;
+  background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+  border-radius: 20px;
+  padding: 10vh;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0 10vh 0 10vh;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 5vh 0 5vh;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .form button {
-    padding: 2vh;
-    margin-top: 5vh;
-    border: none;
-    border-radius: 10px;
+  padding: 2vh;
+  margin-top: 3vh;
+  border: none;
+  width: 100px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form button:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
 }
 
 .form input {
-    margin-top: 1vh;
-    padding: 1vh;
-    border-radius: 10px;
-    border: none;
+  margin-top: 1vh;
+  padding: 1.5vh;
+  border-radius: 10px;
+  border: none;
+  width: 200px;
 }
 
 .AddPlaylistPage h2 {
-    padding: 5vh;
+  padding: 2vh;
+  text-align: center;
 }
 
-.AddPlaylistPage label{
-    padding: 3vh;
+.AddPlaylistPage label {
+  margin-top: 30px;
+  font-size: 17px;
+  font-style: bold;
+  font-weight: 200;
+  font-family: 'Inter', sans-serif;
 }
