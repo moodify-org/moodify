@@ -59,13 +59,24 @@ function App() {
   }, []);
 
   const addTrackToPlaylist = (playlistId, track) => {
-    setPlaylistList(prevPlaylists =>
-      prevPlaylists.map(playlist =>
-        playlist.id === playlistId
-          ? { ...playlist, songs: [...playlist.songs, track] }
-          : playlist
-      )
-    );
+    const playlistToUpdate = playlistList.find(playlist => playlist.id === playlistId);
+  
+    if (playlistToUpdate) {
+      const updatedPlaylist = {
+        ...playlistToUpdate,
+        songs: [...playlistToUpdate.songs, track]
+      };
+  
+      axios.put(`https://json-moodify.adaptable.app/playlists/${playlistId}`, updatedPlaylist)
+        .then(() => {
+          setPlaylistList(prevPlaylists =>
+            prevPlaylists.map(playlist =>
+              playlist.id === playlistId ? updatedPlaylist : playlist
+            )
+          );
+        })
+        .catch(e => console.log(e));
+    }
   };
 
   const deletePlaylist = (playlistId) => {
