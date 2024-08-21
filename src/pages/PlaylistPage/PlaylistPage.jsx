@@ -22,7 +22,6 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist, 
     }
   }, [playlistId, playlistList, navigate]);
 
-
   if (!playlistDetails) {
     return <div>No playlist details found</div>;
   }
@@ -43,6 +42,7 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist, 
       <div className={styles.main}>
         <div className={styles.header} style={{ backgroundImage: gradients ? gradients[randomColorNum] : 'none' }}>
           <h1>{playlistDetails.title}</h1>
+          <p className={styles.playlistDescription}>{playlistDetails.description}</p> {/* Ajout d'une classe pour le style de la description */}
           <button onClick={handleDelete} className={styles.delButton}>X</button>
         </div>
         <div>
@@ -67,7 +67,7 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist, 
                     src={track.preview_url}
                   ></audio>
                   <button
-                    onClick={() => handleDeleteSongs(playlistDetails.id, track.id)} // Passes l'ID de la playlist et l'ID de la chanson
+                    onClick={() => handleDeleteSongs(playlistDetails.id, track.id)}
                     className={styles.delSongs}
                     style={{ backgroundImage: gradients ? gradients[randomColorNum] : 'none' }}
                   >
@@ -81,5 +81,4 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist, 
       </div>
     </div>
   );
-
 }

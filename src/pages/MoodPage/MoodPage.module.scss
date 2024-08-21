@@ -21,8 +21,24 @@
   position: relative;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   color: white;
+  text-align: center;
+}
+
+
+
+.playlistDescription {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+}
+
+.header h1 {
+  text-align: center;
+  font-size: 70px;
 }
 
 h1 {
