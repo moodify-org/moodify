@@ -5,8 +5,8 @@ import axios from "axios";
 
 export default function AddPlaylistPage({ playlistList, callbackToCreate }) {
 
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const navigate = useNavigate();
 
@@ -16,20 +16,20 @@ export default function AddPlaylistPage({ playlistList, callbackToCreate }) {
     alias: "",
     genre: [],
     songs: []
-  }
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
 
     axios.post("https://json-moodify.adaptable.app/playlists", playlistDetails)
-        .then(({data}) => console.log(data))
-        .catch(e => console.log(e))
-
-    setTitle("");
-    setDescription("");
-
-    navigate(`/playlist/${playlistList.length - 5}`);
-  }
+      .then(({ data }) => {
+        callbackToCreate(data); 
+        setTitle("");
+        setDescription("");
+        navigate(`/playlist/${data.id}`); 
+      })
+      .catch(e => console.log(e));
+  };
 
   return (
     <section className={styles.AddPlaylistPage}>

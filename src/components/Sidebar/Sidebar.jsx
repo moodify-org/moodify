@@ -62,7 +62,7 @@ export default function Sidebar({ gradients, playlistList, colorNum }) {
                   style={({ isActive }) => ({
                     color: isActive ? "#000000" : "",
                   })}
-                  to={`/playlist/${playlist.id}`}
+                  to={`/playlist/${playlist.id}`} 
                 >
                   {playlist.title}
                 </NavLink>

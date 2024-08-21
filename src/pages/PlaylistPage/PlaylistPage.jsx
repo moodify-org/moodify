@@ -11,7 +11,7 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist }
 
   useEffect(() => {
     if (playlistList) {
-      const playlist = playlistList.find((m) => m.id === parseInt(playlistId) + 6);
+      const playlist = playlistList.find((m) => m.id === parseInt(playlistId));
       if (playlist) {
         setPlaylistDetails(playlist);
         setRandomColorNum(Math.floor(Math.random() * gradients.length));
@@ -23,8 +23,13 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist }
 
 
   if (!playlistDetails) {
-    return <div>No mood details found</div>;
+    return <div>No playlist details found</div>;
   }
+
+  const handleDelete = () => {
+    deletePlaylist(playlistDetails.id);
+    navigate('/'); 
+  };
 
   return (
     <div className={styles.MoodPage}>
@@ -32,35 +37,33 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist }
       <div className={styles.main}>
         <div className={styles.header} style={{ backgroundImage: gradients ? gradients[randomColorNum] : 'none' }}>
           <h1>{playlistDetails.title}</h1>
-          <button onClick={() => deletePlaylist(playlistDetails.id)}>Delete</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
         <div>
-          <div>
-            <ul>
-              {playlistDetails.songs.map(track => (
-                <li key={track.id} className={styles.trackItem}>
-                  <div className={styles.audioPlayerContainer}>
-                    <img
-                      src={track.album.images[0]?.url}
-                      alt={track.name}
-                      className={styles.trackImage}
-                    />
-                    <div className={styles.trackInfo}>
-                      <span className={styles.trackTitle}>{track.name}</span>
-                      <span className={styles.trackArtists}>
-                        {track.artists.map(artist => artist.name).join(', ')}
-                      </span>
-                    </div>
-                    <audio
-                      controls
-                      className={`${styles.audioPlayer} ${styles[`gradient-${randomColorNum + 1}`]}`}
-                      src={track.preview_url}
-                    ></audio>
+          <ul>
+            {playlistDetails.songs.map(track => (
+              <li key={track.id} className={styles.trackItem}>
+                <div className={styles.audioPlayerContainer}>
+                  <img
+                    src={track.album.images[0]?.url}
+                    alt={track.name}
+                    className={styles.trackImage}
+                  />
+                  <div className={styles.trackInfo}>
+                    <span className={styles.trackTitle}>{track.name}</span>
+                    <span className={styles.trackArtists}>
+                      {track.artists.map(artist => artist.name).join(', ')}
+                    </span>
                   </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  <audio
+                    controls
+                    className={`${styles.audioPlayer} ${styles[`gradient-${randomColorNum + 1}`]}`}
+                    src={track.preview_url}
+                  ></audio>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
