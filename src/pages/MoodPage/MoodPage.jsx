@@ -76,7 +76,7 @@ export default function MoodPage({ playlistList, token, gradients }) {
 
   return (
     <div className={styles.MoodPage}>
-      <Sidebar />
+      <Sidebar gradients={gradients} playlistList={playlistList} />
       <div className={styles.main}>
         <div className={styles.header} style={{ backgroundImage: gradients ? gradients[moodId - 1] : 'none' }}>
           <h1>{moodDetails.title}</h1>
