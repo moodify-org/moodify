@@ -96,10 +96,11 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage playlistList={playlistList} gradients={gradients} />} />
             <Route path="/:moodId" element={<MoodPage playlistList={playlistList} gradients={gradients} token={spotifyToken} addTrackToPlaylist={addTrackToPlaylist} />} />
-            <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} deletePlaylist={deletePlaylist}/>} />
+            <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} deletePlaylist={deletePlaylist} />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/create" element={<AddPlaylistPage playlistList={playlistList} callbackToCreate={addPlaylist} />} />
           </Routes>
+
         </div>
 
         <Footer />
