@@ -4,12 +4,13 @@ import styles from "./MoodPage.module.scss";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function MoodPage({ playlistList, token, gradients }) {
+export default function MoodPage({ playlistList, token, gradients, addTrackToPlaylist }) {
   const { moodId } = useParams();
   const navigate = useNavigate();
   const [moodDetails, setMoodDetails] = useState(null);
   const [recommendations, setRecommendations] = useState([]);
   const [error, setError] = useState(null);
+  const [selectedPlaylistId, setSelectedPlaylistId] = useState('');
 
   useEffect(() => {
     if (playlistList) {
@@ -66,6 +67,10 @@ export default function MoodPage({ playlistList, token, gradients }) {
     fetchRecommendations();
   }, [moodDetails, token]);
 
+  const handleAddTrack = (playlistId, track) => {
+    addTrackToPlaylist(playlistId, track);
+  };
+
   if (error) {
     return <div>{error}</div>;
   }
@@ -104,6 +109,22 @@ export default function MoodPage({ playlistList, token, gradients }) {
                         className={`${styles.audioPlayer} ${styles[`gradient-${moodId}`]}`}
                         src={track.preview_url}
                       ></audio>
+                      <select
+                        className={styles.addButton}
+                        style={{ backgroundImage: gradients ? gradients[moodId - 1] : 'none' }}
+                        value={selectedPlaylistId}
+                        onChange={(e) => {
+                          setSelectedPlaylistId(e.target.value);
+                          handleAddTrack(e.target.value, track);
+                        }}
+                      >
+                        <option value="" disabled>Add to</option>
+                        {playlistList && playlistList.slice(6).map((playlist) => (
+                          <option key={playlist.id} value={playlist.id}>
+                            {playlist.title}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </li>
                 ))}

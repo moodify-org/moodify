@@ -59,6 +59,16 @@ function App() {
     setPlaylistList([...playlistList, newPlaylist])
   }
 
+  const addTrackToPlaylist = (playlistId, track) => {
+    setPlaylistList(prevPlaylists =>
+      prevPlaylists.map(playlist =>
+        playlist.id === playlistId
+          ? { ...playlist, songs: [...(playlist.songs || []), track] }
+          : playlist
+      )
+    );
+  };
+
   const gradients = [
     "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
     "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)",
@@ -76,7 +86,7 @@ function App() {
         <div className="Routes">
           <Routes>
             <Route path="/" element={<HomePage playlistList={playlistList} gradients={gradients} />} />
-            <Route path="/:moodId" element={<MoodPage playlistList={playlistList} gradients={gradients} token={spotifyToken} />} />
+            <Route path="/:moodId" element={<MoodPage playlistList={playlistList} gradients={gradients} token={spotifyToken} addTrackToPlaylist={addTrackToPlaylist} />} />
             <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/create" element={<AddPlaylistPage playlistList={playlistList} callbackToCreate={createPlaylist} />} />
