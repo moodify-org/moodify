@@ -55,19 +55,20 @@ export default function Sidebar({ gradients, playlistList, colorNum }) {
         </div>
         <div className={styles.playlist}>
           <h1>Playlists</h1>
-          {playlistList && playlistList.slice(6).map((playlist, index) => {
-            return (
-              <ul className={styles.menu}>
-                <li>
-                  <NavLink style={({ isActive }) => {
-                    return {
-                      color: isActive ? "#000000" : "",
-                    };
-                  }} to={`/playlist/${index + 1}`}>{playlist.title}</NavLink>
-                </li>
-              </ul>
-            )
-          })}
+          <ul className={styles.menu}>
+            {playlistList && playlistList.slice(6).map((playlist) => (
+              <li key={playlist.id}>
+                <NavLink
+                  style={({ isActive }) => ({
+                    color: isActive ? "#000000" : "",
+                  })}
+                  to={`/playlist/${playlist.id}`}
+                >
+                  {playlist.title}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
         </div>
       </nav>
     </div>

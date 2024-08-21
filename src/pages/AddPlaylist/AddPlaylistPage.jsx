@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./AddPlaylistPage.module.scss"
+import axios from "axios";
 
 export default function AddPlaylistPage({ playlistList, callbackToCreate }) {
 
@@ -9,17 +10,20 @@ export default function AddPlaylistPage({ playlistList, callbackToCreate }) {
 
   const navigate = useNavigate();
 
+  const playlistDetails = {
+    title: title,
+    description: description,
+    alias: "",
+    genre: [],
+    songs: []
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
 
-    const songDetails = {
-      title: title,
-      description: description,
-      genre: [],
-      songs: []
-    }
-
-    callbackToCreate(songDetails);
+    axios.post("https://json-moodify.adaptable.app/playlists", playlistDetails)
+        .then(({data}) => console.log(data))
+        .catch(e => console.log(e))
 
     setTitle("");
     setDescription("");

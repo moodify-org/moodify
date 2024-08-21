@@ -88,7 +88,11 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage playlistList={playlistList} gradients={gradients} />} />
             <Route path="/:moodId" element={<MoodPage playlistList={playlistList} gradients={gradients} token={spotifyToken} addTrackToPlaylist={addTrackToPlaylist} />} />
+<<<<<<< HEAD
             <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} deletePlaylist={deletePlaylist} />} />
+=======
+            <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} deletePlaylist={deletePlaylist}/>} />
+>>>>>>> 5bdfa484df26ccd2514e032e79f33c7a9f9f7943
             <Route path="/about" element={<AboutPage />} />
             <Route path="/create" element={<AddPlaylistPage playlistList={playlistList} />} />
           </Routes>
