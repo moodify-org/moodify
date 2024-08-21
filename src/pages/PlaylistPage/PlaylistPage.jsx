@@ -2,8 +2,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Sidebar from "../../components/Sidebar/Sidebar";
 import styles from "../MoodPage/MoodPage.module.scss";
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-export default function PlaylistPage({ playlistList, gradients, deletePlaylist }) {
+export default function PlaylistPage({ playlistList, gradients, deletePlaylist, handleDeleteSongs }) {
   const { playlistId } = useParams();
   const navigate = useNavigate();
   const [playlistDetails, setPlaylistDetails] = useState(null);
@@ -28,8 +29,13 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist }
 
   const handleDelete = () => {
     deletePlaylist(playlistDetails.id);
-    navigate('/'); 
+    navigate('/');
   };
+
+  const delSongs = () => {
+    handleDeleteSongs(playlistDetails.songs);
+    navigate('/');
+  }
 
   return (
     <div className={styles.MoodPage}>
@@ -37,7 +43,7 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist }
       <div className={styles.main}>
         <div className={styles.header} style={{ backgroundImage: gradients ? gradients[randomColorNum] : 'none' }}>
           <h1>{playlistDetails.title}</h1>
-          <button onClick={handleDelete}>Delete</button>
+          <button onClick={handleDelete} className={styles.delButton}>X</button>
         </div>
         <div>
           <ul>
@@ -60,6 +66,13 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist }
                     className={`${styles.audioPlayer} ${styles[`gradient-${randomColorNum + 1}`]}`}
                     src={track.preview_url}
                   ></audio>
+                  <button
+                    onClick={() => handleDeleteSongs(playlistDetails.id, track.id)} // Passes l'ID de la playlist et l'ID de la chanson
+                    className={styles.delSongs}
+                    style={{ backgroundImage: gradients ? gradients[randomColorNum] : 'none' }}
+                  >
+                    X
+                  </button>
                 </div>
               </li>
             ))}
@@ -68,4 +81,5 @@ export default function PlaylistPage({ playlistList, gradients, deletePlaylist }
       </div>
     </div>
   );
+
 }

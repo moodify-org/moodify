@@ -18,6 +18,7 @@
   height: 355px;
   width: 100%;
   border-radius: 15px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,7 +175,7 @@ li {
 
 .addButton {
   border: none;
-  color: white;
+  color: black;
   padding: 10px 20px;
   border-radius: 50px;
   cursor: pointer;
@@ -191,4 +192,33 @@ li {
 .addButton option {
   background-color: black;
   color: white;
+}
+
+
+.delButton {
+  position: absolute;
+  top: 20px;
+  font-weight: bold;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.delSongs {
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 1rem;
 }

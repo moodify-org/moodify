@@ -60,13 +60,13 @@ function App() {
 
   const addTrackToPlaylist = (playlistId, track) => {
     const playlistToUpdate = playlistList.find(playlist => playlist.id === playlistId);
-  
+
     if (playlistToUpdate) {
       const updatedPlaylist = {
         ...playlistToUpdate,
         songs: [...playlistToUpdate.songs, track]
       };
-  
+
       axios.put(`https://json-moodify.adaptable.app/playlists/${playlistId}`, updatedPlaylist)
         .then(() => {
           setPlaylistList(prevPlaylists =>
@@ -82,12 +82,35 @@ function App() {
   const deletePlaylist = (playlistId) => {
     axios.delete(`https://json-moodify.adaptable.app/playlists/${playlistId}`)
       .then(() => {
-        setPlaylistList(prevPlaylists => 
+        setPlaylistList(prevPlaylists =>
           prevPlaylists.filter(playlist => playlist.id !== playlistId)
         );
       })
       .catch(e => console.log(e));
   };
+
+  const handleDeleteSongs = (playlistId, trackId) => {
+    const playlistToUpdate = playlistList.find(playlist => playlist.id === playlistId);
+
+    if (playlistToUpdate) {
+      const updatedSongs = playlistToUpdate.songs.filter(song => song.id !== trackId);
+      const updatedPlaylist = {
+        ...playlistToUpdate,
+        songs: updatedSongs
+      };
+
+      axios.put(`https://json-moodify.adaptable.app/playlists/${playlistId}`, updatedPlaylist)
+        .then(() => {
+          setPlaylistList(prevPlaylists =>
+            prevPlaylists.map(playlist =>
+              playlist.id === playlistId ? updatedPlaylist : playlist
+            )
+          );
+        })
+        .catch(e => console.log(e));
+    }
+  };
+
 
   const gradients = [
     "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
@@ -107,7 +130,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage playlistList={playlistList} gradients={gradients} />} />
             <Route path="/:moodId" element={<MoodPage playlistList={playlistList} gradients={gradients} token={spotifyToken} addTrackToPlaylist={addTrackToPlaylist} />} />
-            <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} deletePlaylist={deletePlaylist} />} />
+            <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} deletePlaylist={deletePlaylist} handleDeleteSongs={handleDeleteSongs} />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/create" element={<AddPlaylistPage playlistList={playlistList} callbackToCreate={addPlaylist} />} />
           </Routes>
