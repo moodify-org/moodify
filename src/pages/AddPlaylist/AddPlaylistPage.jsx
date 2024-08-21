@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function AddPlaylistPage ({callbackToCreate}) {
+export default function AddPlaylistPage ({playlistList, callbackToCreate}) {
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+
+    const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -20,6 +23,7 @@ export default function AddPlaylistPage ({callbackToCreate}) {
         setTitle("");
         setDescription("");
     
+        navigate(`/playlist/${playlistList.length-5}`);
     }
 
     return (

@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import PlaylistPage from './pages/PlaylistPage/PlaylistPage'
 
 function App() {
 
@@ -76,8 +77,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage playlistList={playlistList} gradients={gradients} />} />
             <Route path="/:moodId" element={<MoodPage playlistList={playlistList} gradients={gradients} token={spotifyToken} />} />
+            <Route path="/playlist/:playlistId" element={<PlaylistPage playlistList={playlistList} gradients={gradients} />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/create" element={<AddPlaylistPage callbackToCreate={createPlaylist} />} />
+            <Route path="/create" element={<AddPlaylistPage playlistList={playlistList} callbackToCreate={createPlaylist} />} />
           </Routes>
         </div>
 

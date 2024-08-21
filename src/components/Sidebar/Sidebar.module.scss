@@ -8,6 +8,10 @@
   border-radius: 15px;
 }
 
+.sidebar h1 {
+  padding-bottom: 30px;
+}
+
 .menu {
   list-style: none;
   display: flex;
@@ -18,21 +22,33 @@
 .menu a:link,
 .menu a:visited {
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: 600;
   font-size: 20px;
 }
 
 .menu a:hover,
 .menu a:active {
-  color: #FFC0CB;
+  color: black;
   cursor: pointer;
+}
+
+.menu li {
+  padding-top: 15px;
 }
 
 a {
   color: orange;
 }
 
-.active {
-  color: red;
+.moods h1 {
+  padding-top: 30px;
+}
+
+.playlist {
+  padding-top: 50px;
+}
+
+.playlist h1 {
+  padding-top: 30px;
 }
