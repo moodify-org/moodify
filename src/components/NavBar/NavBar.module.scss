@@ -1,18 +1,41 @@
+@use '../../assets/styles/mixins' as mixin;
+@use '../../assets/styles/debug';
+@use '../../assets/styles/index.scss';
+
 .NavBar {
     background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100px;
+
+    @include mixin.xs {
+        flex-direction: column;
+        justify-content: center;
+        height: 150px;
+      }
+    
 }
 
 .NavBar h1 {
     padding-left: 50px;
     color: #FFC0CB;
+
+    @include mixin.xs {
+        padding-left: 0;
+      }
+    
+      @include mixin.sm {
+        padding-left: 20px;
+      }
 }
 
 .NavBar h2 {
     padding: 20px;
+    
+      @include mixin.sm {
+        padding: 20px 20px 20px 0;
+      }
 }
 
 
@@ -31,6 +54,14 @@
 .navOptions {
     display: flex;
     padding-right: 50px;
+
+    @include mixin.xs {
+        padding: 0 20px 0 20px;
+      }
+    
+      @include mixin.sm {
+        padding-right: 0;
+      }
 }
 
 .navOptions button {

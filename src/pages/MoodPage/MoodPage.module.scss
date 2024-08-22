@@ -106,10 +106,6 @@ li {
   &:last-child {
     border-bottom: none;
   }
-
-  @include mixin.xs {
-    flex-direction: column;
-  }
 }
 
 
@@ -123,6 +119,14 @@ li {
   font-weight: 200;
   font-style: normal;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+
+  @include mixin.xs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .trackInfo {
@@ -148,7 +152,7 @@ li {
     }
 
     @include mixin.xs {
-      font-size: 12px;
+      font-size: 25px;
     }
   }
 
@@ -169,7 +173,7 @@ li {
     }
 
     @include mixin.xs {
-      font-size: 12px;
+      font-size: 18px;
     }
   }
 }
@@ -190,6 +194,7 @@ li {
 
   @include mixin.xs {
     width: 200px;
+    margin-top: 20px;
   }
 
 
@@ -248,18 +253,18 @@ li {
   background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
 }
 
-.audioPlayerContainer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
 .trackImage {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 5px;
   margin-right: 1rem;
+
+  @include mixin.xs {
+    margin-right: 0;
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .trackInfo {
@@ -280,6 +285,10 @@ li {
 
 .audioPlayer {
   margin-left: 1rem;
+
+  @include mixin.xs {
+    margin-left: 0;
+  }
 }
 
 .addButton {
@@ -303,6 +312,8 @@ li {
 
   @include mixin.xs {
     padding: 5px 5px;
+    margin-top: 10px;
+    margin-left: 0;
   }
 }
 
