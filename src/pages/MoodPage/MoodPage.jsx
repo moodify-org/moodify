@@ -83,7 +83,7 @@ export default function MoodPage({ playlistList, token, gradients, addTrackToPla
   }
 
   return (
-    <div className={`${styles.MoodPage} ${styles.br}`}>
+    <div className={`${styles.MoodPage}`}>
       <Sidebar gradients={gradients} playlistList={playlistList} />
       <div className={styles.main}>
         <div className={styles.header} style={{ backgroundImage: gradients ? gradients[moodId - 1] : 'none' }}>
