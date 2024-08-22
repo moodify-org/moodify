@@ -121,7 +121,7 @@ export default function MoodPage({ playlistList, token, gradients, addTrackToPla
                           handleAddTrack(e.target.value, track);
                         }}
                       >
-                        <option value="" disabled>Add to</option>
+                        <option value="" disabled>Add</option>
                         {playlistList && playlistList.slice(6).map((playlist) => (
                           <option key={playlist.id} value={playlist.id}>
                             {playlist.title}

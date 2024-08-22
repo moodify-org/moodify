@@ -54,7 +54,9 @@
   color: white;
   text-align: center;
 
-
+  @include mixin.xl {
+    padding: 0 20px;
+  }
 }
 
 

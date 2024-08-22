@@ -5,7 +5,7 @@
 
 .homeHeader {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../../images/music-background.jpg");
+        url("../../images/music-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -20,8 +20,10 @@
 .homeHeader h1 {
     color: white;
     text-align: center;
+    font-family: "Concert One", sans-serif;
     font-size: 80px;
-    font-weight: 600;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .homeText {
