@@ -70,7 +70,7 @@ export default function MoodPage({ playlistList, token, gradients, addTrackToPla
   const handleAddTrack = (playlistId, track) => {
     if (playlistId && track) {
       addTrackToPlaylist(parseInt(playlistId), track);
-      setSelectedPlaylistId('');  
+      setSelectedPlaylistId('');
     }
   };
 
@@ -83,13 +83,13 @@ export default function MoodPage({ playlistList, token, gradients, addTrackToPla
   }
 
   return (
-    <div className={styles.MoodPage}>
+    <div className={`${styles.MoodPage} ${styles.br}`}>
       <Sidebar gradients={gradients} playlistList={playlistList} />
       <div className={styles.main}>
         <div className={styles.header} style={{ backgroundImage: gradients ? gradients[moodId - 1] : 'none' }}>
           <h1>{moodDetails.title}</h1>
         </div>
-        <div>
+        <div className={styles.track} >
           <div>
             {recommendations.length > 0 ? (
               <ul>

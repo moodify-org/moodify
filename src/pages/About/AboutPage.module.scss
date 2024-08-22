@@ -1,9 +1,16 @@
+@use '../../assets/styles/mixins' as mixin;
+@use '../../assets/styles/debug';
+@use '../../assets/styles/index.scss';
+
+
 .AboutPage {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: black;
   padding-top: 50px;
+
+
 }
 
 .aboutInfo {
@@ -13,6 +20,20 @@
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   border-radius: 10px;
   width: 70%;
+
+  @include mixin.xs {
+    text-align: justify;
+    width: 50%;
+  }
+
+  @include mixin.sm {
+    text-align: justify;
+    width: 50%;
+  }
+
+  @include mixin.md {
+    text-align: justify;
+  }
 }
 
 .aboutInfo h3 {
@@ -34,6 +55,14 @@
   display: flex;
   margin: 5vh;
   justify-content: space-evenly;
+
+  @include mixin.xs {
+    flex-direction: column;
+  }
+
+  @include mixin.sm {
+    flex-direction: column;
+  }
 }
 
 .aboutCard {

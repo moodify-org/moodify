@@ -1,8 +1,9 @@
 import styles from "./AboutPage.module.scss"
 
+
 export default function AboutPage() {
   return (
-    <div className={styles.AboutPage}>
+    <div className={`${styles.AboutPage}`}>
       <div className={styles.aboutInfo}>
         <h1>What is Moodify?</h1>
         <h3>Moodify is an easy-to-use application where you can select the mood you are feeling and songs will be automatically recommended to you. You are also able to create personalised playlists with these available songs to specify a particular vibe you are looking for!</h3>

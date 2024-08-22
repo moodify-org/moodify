@@ -1,3 +1,7 @@
+@use '../../assets/styles/mixins' as mixin;
+@use '../../assets/styles/debug';
+@use '../../assets/styles/index.scss';
+
 .MoodPage {
   display: flex;
   min-height: 100vh;
@@ -5,6 +9,13 @@
   background-color: black;
   flex-direction: row;
 
+  @include mixin.sm {
+    flex-direction: column;
+  }
+
+  @include mixin.xs {
+    flex-direction: column;
+  }
 }
 
 .main {
@@ -12,6 +23,23 @@
   flex-grow: 1;
   flex-direction: column;
   padding: 0 50px;
+
+
+  @include mixin.lg {
+    padding: 0 20px;
+  }
+
+  @include mixin.md {
+    padding: 0 20px;
+  }
+
+  @include mixin.sm {
+    padding: 0;
+  }
+
+  @include mixin.xs {
+    padding: 0;
+  }
 }
 
 .header {
@@ -25,6 +53,8 @@
   justify-content: center;
   color: white;
   text-align: center;
+
+
 }
 
 
@@ -39,6 +69,19 @@
 .header h1 {
   text-align: center;
   font-size: 70px;
+
+  @include mixin.md {
+    font-size: 40px;
+  }
+
+  @include mixin.sm {
+    font-size: 35px;
+  }
+
+  @include mixin.xs {
+    font-size: 30px;
+  }
+
 }
 
 h1 {
@@ -63,7 +106,13 @@ li {
   &:last-child {
     border-bottom: none;
   }
+
+  @include mixin.xs {
+    flex-direction: column;
+  }
 }
+
+
 
 .audioPlayerContainer {
   display: flex;
@@ -85,11 +134,43 @@ li {
     font-size: 20px;
     color: white;
     display: block;
+
+    @include mixin.lg {
+      font-size: 15px;
+    }
+
+    @include mixin.md {
+      font-size: 15px;
+    }
+
+    @include mixin.sm {
+      font-size: 15px;
+    }
+
+    @include mixin.xs {
+      font-size: 12px;
+    }
   }
 
   .trackArtists {
     font-size: 17px;
     color: #bebcbc;
+
+    @include mixin.lg {
+      font-size: 15px;
+    }
+
+    @include mixin.md {
+      font-size: 15px;
+    }
+
+    @include mixin.sm {
+      font-size: 15px;
+    }
+
+    @include mixin.xs {
+      font-size: 12px;
+    }
   }
 }
 
@@ -98,6 +179,18 @@ li {
   width: 300px;
   appearance: none;
   position: relative;
+
+  @include mixin.md {
+    width: 200px;
+  }
+
+  @include mixin.sm {
+    width: 200px;
+  }
+
+  @include mixin.xs {
+    width: 200px;
+  }
 
 
   &::-webkit-media-controls-play-button {
@@ -199,6 +292,18 @@ li {
   font-weight: 600;
   font-size: 16px;
   margin-left: 1rem;
+
+  @include mixin.md {
+    padding: 5px 10px;
+  }
+
+  @include mixin.sm {
+    padding: 5px 5px;
+  }
+
+  @include mixin.xs {
+    padding: 5px 5px;
+  }
 }
 
 .addButton:hover {
