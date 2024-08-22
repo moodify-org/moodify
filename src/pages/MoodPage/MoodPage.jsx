@@ -59,7 +59,7 @@ export default function MoodPage({ playlistList, token, gradients, addTrackToPla
             setRecommendations(tracksWithPreview);
           }
         } catch (error) {
-          setError('Error fetching recommendations');
+          <h1 className={styles.errorMessage}> Error found! No songs available yet! Let us know and we will fix it</h1>
         }
       }
     };
