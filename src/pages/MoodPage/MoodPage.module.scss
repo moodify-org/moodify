@@ -6,7 +6,7 @@
   display: flex;
   min-height: 100vh;
   width: 100%;
-  background-color: black;
+  background-color: #111;
   flex-direction: row;
 
   @include mixin.sm {
@@ -64,13 +64,14 @@
 .playlistDescription {
   margin-top: 15px;
   font-size: 1rem;
-  color: black;
+  color: #111;
   font-weight: bold;
 }
 
 .header h1 {
   text-align: center;
   font-size: 70px;
+  font-family: Concert One, sans-serif;
 
   @include mixin.md {
     font-size: 40px;
@@ -115,7 +116,7 @@ li {
 .audioPlayerContainer {
   display: flex;
   align-items: center;
-  background-color: black;
+  background-color: #111;
   padding: 10px;
   font-family: 'Inter', sans-serif;
   font-weight: 200;
@@ -209,16 +210,16 @@ li {
   &::-webkit-media-controls-current-time-display,
   &::-webkit-media-controls-time-remaining-display {
     font-size: 12px;
-    color: black;
+    color: #111;
   }
 
   &::-webkit-media-controls-volume-slider {
     width: 50px;
-    color: black;
+    color: #111;
   }
 
   &::-webkit-media-controls-volume-slider-container {
-    color: black;
+    color: #111;
   }
 
   &::-webkit-media-controls-mute-button {
@@ -295,7 +296,7 @@ li {
 
 .addButton {
   border: none;
-  color: black;
+  color: #111;
   padding: 10px 20px;
   border-radius: 50px;
   cursor: pointer;
@@ -324,7 +325,7 @@ li {
 }
 
 .addButton option {
-  background-color: black;
+  background-color: #111;
   color: white;
 }
 
@@ -336,7 +337,7 @@ li {
   right: 20px;
   background: transparent;
   border: none;
-  color: black;
+  color: #111;
   font-size: 1.5rem;
   cursor: pointer;
 
@@ -347,7 +348,7 @@ li {
 
 .delSongs {
   border: none;
-  color: black;
+  color: #111;
   padding: 10px 20px;
   border-radius: 50px;
   cursor: pointer;

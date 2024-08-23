@@ -61,7 +61,7 @@
 .menu a:link,
 .menu a:visited {
   text-decoration: none;
-  color: black;
+  color: #111;
   font-weight: bold;
   font-size: 20px;
 
@@ -80,6 +80,9 @@
 .moods h1 {
   padding-top: 30px;
   color: white;
+  font-family: Concert One, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 4px;
 
   @include mixin.sm {
     padding-top: 15px;
@@ -93,6 +96,9 @@
 .playlist h1 {
   padding-top: 30px;
   color: white;
+  font-family: Concert One, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 4px;
 
   @include mixin.sm {
     padding-top: 15px;
@@ -100,7 +106,7 @@
 }
 
 .noPlaylist {
-  color: black !important;
+  color: #111 !important;
   background-color: white;
   padding: 5px;
   border-radius: 10px;
@@ -109,7 +115,7 @@
 
 .noPlaylist:hover {
   color: white !important;
-  background-color: black;
+  background-color: #111;
   padding: 5px;
   border-radius: 10px;
   text-align: center;
