@@ -16,8 +16,8 @@ function App() {
   const [playlistList, setPlaylistList] = useState(null);
   const [spotifyToken, setSpotifyToken] = useState(null);
 
-  const clientId = '3d7a80687e3b434681290c6e8ab96955';
-  const clientSecret = '414bad401d50421283561ca282fef6e9';
+  const clientId = import.meta.env.VITE_SPOTIFY_API_ID;
+  const clientSecret = import.meta.env.VITE_SPOTIFY_API_SECRET;
 
   const getPlaylists = () => {
     axios
