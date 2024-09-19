@@ -21,7 +21,7 @@ function App() {
 
   const getPlaylists = () => {
     axios
-      .get("https://json-moodify.adaptable.app/playlists")
+      .get("https://moodify-backend-2cwi.onrender.com/playlists")
       .then(({ data }) => setPlaylistList(data))
       .catch(e => console.log(e));
   }
@@ -67,7 +67,7 @@ function App() {
         songs: [...playlistToUpdate.songs, track]
       };
 
-      axios.put(`https://json-moodify.adaptable.app/playlists/${playlistId}`, updatedPlaylist)
+      axios.put(`https://moodify-backend-2cwi.onrender.com/playlists/${playlistId}`, updatedPlaylist)
         .then(() => {
           setPlaylistList(prevPlaylists =>
             prevPlaylists.map(playlist =>
@@ -80,7 +80,7 @@ function App() {
   };
 
   const deletePlaylist = (playlistId) => {
-    axios.delete(`https://json-moodify.adaptable.app/playlists/${playlistId}`)
+    axios.delete(`https://moodify-backend-2cwi.onrender.com/playlists/${playlistId}`)
       .then(() => {
         setPlaylistList(prevPlaylists =>
           prevPlaylists.filter(playlist => playlist.id !== playlistId)
@@ -99,7 +99,7 @@ function App() {
         songs: updatedSongs
       };
 
-      axios.put(`https://json-moodify.adaptable.app/playlists/${playlistId}`, updatedPlaylist)
+      axios.put(`https://moodify-backend-2cwi.onrender.com/playlists/${playlistId}`, updatedPlaylist)
         .then(() => {
           setPlaylistList(prevPlaylists =>
             prevPlaylists.map(playlist =>

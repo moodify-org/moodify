@@ -21,7 +21,7 @@ export default function AddPlaylistPage({ playlistList, callbackToCreate }) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    axios.post("https://json-moodify.adaptable.app/playlists", playlistDetails)
+    axios.post("https://moodify-backend-2cwi.onrender.com/playlists", playlistDetails)
       .then(({ data }) => {
         callbackToCreate(data); 
         setTitle("");
